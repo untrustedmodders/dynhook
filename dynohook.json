@@ -1,6 +1,6 @@
 {
    "content": {
-	   "Plugin1": {
+     "dynohook": {
          "name": "DynoHook",
          "type": "plugin",
          "author": "qubka",
