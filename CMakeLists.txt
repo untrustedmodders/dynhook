@@ -32,3 +32,18 @@ endif()
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME} EXPORT_MACRO_NAME PLUGIN_API EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/plugin_export.h)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/exports)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dynohook")
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        PREFIX ""
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
+        )
+
+add_custom_command(
+        TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_SOURCE_DIR}/dynohook.wplugin ${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook
+)

@@ -7,8 +7,8 @@
 	"createdBy": "qubka",
 	"createdByURL": "https://github.com/qubka/",
 	"docsURL": "https://github.com/qubka/DynoHook",
-	"downloadURL": "",
-	"updateURL": "",
+	"downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip",
+	"updateURL": "https://raw.githubusercontent.com/untrustedmodders/dynohook/main/dynohook.json",
 	"assemblyPath": "bin/dynohook",
 	"supportedPlatforms": [],
 	"languageModule": {
