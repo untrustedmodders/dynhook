@@ -28,7 +28,7 @@
 		"funcName": "Dyno_HookDetour",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pFunc"},
-		  {"type": "ptr64*", "name": "arguments"},
+		  {"type": "int32*", "name": "arguments"},
 		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
 		],
@@ -40,7 +40,7 @@
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "uint64", "name": "index"},
-		  {"type": "ptr64*", "name": "arguments"},
+		  {"type": "int32*", "name": "arguments"},
 		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
 		],
