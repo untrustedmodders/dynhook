@@ -1,7 +1,7 @@
 {
    "content": {
      "dynohook": {
-         "name": "DynoHook",
+         "name": "dynohook",
          "type": "plugin",
          "author": "qubka",
          "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
