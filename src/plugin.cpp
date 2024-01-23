@@ -1,7 +1,6 @@
 #include <wizard/cpp_plugin.h>
 #include <plugin_export.h>
 #include <dynohook/manager.h>
-#include <dynohook/log.h>
 
 using namespace dyno;
 
