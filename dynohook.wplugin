@@ -47,8 +47,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_HookVirtualF",
-		"funcName": "Dyno_HookVirtualF",
+		"name": "Dyno_HookVirtualByFunc",
+		"funcName": "Dyno_HookVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"},
@@ -76,8 +76,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_UnhookVirtualF",
-		"funcName": "Dyno_UnhookVirtualF",
+		"name": "Dyno_UnhookVirtualByFunc",
+		"funcName": "Dyno_UnhookVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"}
@@ -102,8 +102,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_FindVirtualF",
-		"funcName": "Dyno_FindVirtualF",
+		"name": "Dyno_FindVirtualByFunc",
+		"funcName": "Dyno_FindVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"}

@@ -42,7 +42,7 @@ PLUGIN_API IHook* Dyno_HookVirtual(void* pClass, uint16_t index, DataObject* arg
 }
 
 extern "C"
-PLUGIN_API IHook* Dyno_HookVirtualF(void* pClass, void* pFunc, DataObject* arguments, int size, DataObject returnType) {
+PLUGIN_API IHook* Dyno_HookVirtualByFunc(void* pClass, void* pFunc, DataObject* arguments, int size, DataObject returnType) {
 	return HookManager::Get().hookVirtual(pClass, pFunc, [=]() { return new DEFAULT_CALLCONV(std::vector(arguments, arguments + size), returnType); }).get();
 }
 
@@ -57,7 +57,7 @@ PLUGIN_API bool Dyno_UnhookVirtual(void* pClass, uint16_t index) {
 }
 
 extern "C"
-PLUGIN_API bool Dyno_UnhookVirtualF(void* pClass, void* pFunc) {
+PLUGIN_API bool Dyno_UnhookVirtualByFunc(void* pClass, void* pFunc) {
 	return HookManager::Get().unhookVirtual(pClass, pFunc);
 }
 
@@ -72,7 +72,7 @@ PLUGIN_API IHook* Dyno_FindVirtual(void* pClass, uint16_t index) {
 }
 
 extern "C"
-PLUGIN_API IHook* Dyno_FindVirtualF(void* pClass, void* pFunc) {
+PLUGIN_API IHook* Dyno_FindVirtualByFunc(void* pClass, void* pFunc) {
 	return HookManager::Get().findVirtual(pClass, pFunc).get();
 }
 
