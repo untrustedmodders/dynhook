@@ -1,6 +1,7 @@
 #include <wizard/cpp_plugin.h>
 #include <plugin_export.h>
 #include <dynohook/manager.h>
+#include <dynohook/log.h>
 
 using namespace dyno;
 
@@ -14,6 +15,7 @@ using namespace dyno;
 
 class DynoHookPlugin : public wizard::IPluginEntry {
 	void OnPluginStart() override {
+		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		HookManager::Get(); // init singleton
 	}
 
@@ -35,8 +37,13 @@ PLUGIN_API IHook* Dyno_HookDetour(void* pFunc, DataObject* arguments, int size, 
 }
 
 extern "C"
-PLUGIN_API IHook* Dyno_HookVirtual(void* pClass, size_t index, DataObject* arguments, int size, DataObject returnType) {
+PLUGIN_API IHook* Dyno_HookVirtual(void* pClass, uint16_t index, DataObject* arguments, int size, DataObject returnType) {
 	return HookManager::Get().hookVirtual(pClass, index, [=]() { return new DEFAULT_CALLCONV(std::vector(arguments, arguments + size), returnType); }).get();
+}
+
+extern "C"
+PLUGIN_API IHook* Dyno_HookVirtualF(void* pClass, void* pFunc, DataObject* arguments, int size, DataObject returnType) {
+	return HookManager::Get().hookVirtual(pClass, pFunc, [=]() { return new DEFAULT_CALLCONV(std::vector(arguments, arguments + size), returnType); }).get();
 }
 
 extern "C"
@@ -45,8 +52,13 @@ PLUGIN_API bool Dyno_UnhookDetour(void* pFunc) {
 }
 
 extern "C"
-PLUGIN_API bool Dyno_UnhookVirtual(void* pClass, size_t index) {
+PLUGIN_API bool Dyno_UnhookVirtual(void* pClass, uint16_t index) {
 	return HookManager::Get().unhookVirtual(pClass, index);
+}
+
+extern "C"
+PLUGIN_API bool Dyno_UnhookVirtualF(void* pClass, void* pFunc) {
+	return HookManager::Get().unhookVirtual(pClass, pFunc);
 }
 
 extern "C"
@@ -55,12 +67,17 @@ PLUGIN_API IHook* Dyno_FindDetour(void* pFunc) {
 }
 
 extern "C"
-PLUGIN_API IHook* Dyno_FindVirtual(void* pClass, size_t index){
+PLUGIN_API IHook* Dyno_FindVirtual(void* pClass, uint16_t index) {
 	return HookManager::Get().findVirtual(pClass, index).get();
 }
 
 extern "C"
-PLUGIN_API void Dyno_UnhookAll(){
+PLUGIN_API IHook* Dyno_FindVirtualF(void* pClass, void* pFunc) {
+	return HookManager::Get().findVirtual(pClass, pFunc).get();
+}
+
+extern "C"
+PLUGIN_API void Dyno_UnhookAll() {
 	return HookManager::Get().unhookAll();
 }
 
@@ -70,7 +87,7 @@ PLUGIN_API void Dyno_HookAllVirtual(void* pClass) {
 }
 
 extern "C"
-PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool type, CallbackHandler handler){
+PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool type, CallbackHandler handler) {
 	return pHook->addCallback(static_cast<CallbackType>(type), handler);
 }
 
