@@ -26,7 +26,7 @@ class DynoHookPlugin : public wizard::IPluginEntry {
 EXPOSE_PLUGIN(PLUGIN_API, &g_dynoPlugin)
 
 extern "C"
-PLUGIN_API HookManager* Dyno_GetManager() {
+PLUGIN_API IHookManager* Dyno_GetManager() {
 	return &HookManager::Get();
 }
 
