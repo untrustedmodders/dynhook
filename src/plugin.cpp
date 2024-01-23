@@ -60,6 +60,16 @@ PLUGIN_API IHook* Dyno_FindVirtual(void* pClass, size_t index){
 }
 
 extern "C"
+PLUGIN_API void Dyno_UnhookAll(){
+	return HookManager::Get().unhookAll();
+}
+
+extern "C"
+PLUGIN_API void Dyno_HookAllVirtual(void* pClass) {
+	HookManager::Get().unhookAllVirtual(pClass);
+}
+
+extern "C"
 PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool type, CallbackHandler handler){
 	return pHook->addCallback(static_cast<CallbackType>(type), handler);
 }

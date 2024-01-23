@@ -81,6 +81,21 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
+		"name": "Dyno_UnhookAll",
+		"funcName": "Dyno_UnhookAll",
+		"paramTypes": [
+		],
+		"retType": {"type": "void"}
+	  },
+	  {
+		"name": "Dyno_HookAllVirtual",
+		"funcName": "Dyno_HookAllVirtual",
+		"paramTypes": [
+		  {"type": "ptr64", "name": "pClass"}
+		],
+		"retType": {"type": "void"}
+	  },
+	  {
 		"name": "Dyno_AddCallback",
 		"funcName": "Dyno_AddCallback",
 		"paramTypes": [
