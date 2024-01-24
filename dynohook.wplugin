@@ -39,7 +39,7 @@
 		"funcName": "Dyno_HookVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
-		  {"type": "uint16", "name": "index"},
+		  {"type": "int32", "name": "index"},
 		  {"type": "int32*", "name": "arguments"},
 		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
@@ -71,7 +71,7 @@
 		"funcName": "Dyno_UnhookVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
-		  {"type": "uint16", "name": "index"}
+		  {"type": "int32", "name": "index"}
 		],
 		"retType": {"type": "bool"}
 	  },
@@ -97,7 +97,7 @@
 		"funcName": "Dyno_FindVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
-		  {"type": "uint16", "name": "index"}
+		  {"type": "int32", "name": "index"}
 		],
 		"retType": {"type": "ptr64"}
 	  },
