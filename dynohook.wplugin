@@ -130,7 +130,7 @@
 		"funcName": "Dyno_AddCallback",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
-		  {"type": "bool", "name": "type"},
+		  {"type": "bool", "name": "post"},
 		  {"type": "function", "name": "handler"}
 		],
 		"retType": {"type": "bool"}
@@ -140,7 +140,7 @@
 		"funcName": "Dyno_RemoveCallback",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
-		  {"type": "bool", "name": "type"},
+		  {"type": "bool", "name": "post"},
 		  {"type": "function", "name": "handler"}
 		],
 		"retType": {"type": "bool"}
@@ -150,7 +150,7 @@
 		"funcName": "Dyno_IsCallbackRegistered",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
-		  {"type": "bool", "name": "type"},
+		  {"type": "bool", "name": "post"},
 		  {"type": "function", "name": "handler"}
 		],
 		"retType": {"type": "bool"}

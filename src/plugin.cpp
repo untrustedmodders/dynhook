@@ -86,18 +86,18 @@ PLUGIN_API void Dyno_HookAllVirtual(void* pClass) {
 }
 
 extern "C"
-PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool type, CallbackHandler handler) {
-	return pHook->addCallback(static_cast<CallbackType>(type), handler);
+PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool post, CallbackHandler handler) {
+	return pHook->addCallback(static_cast<CallbackType>(post), handler);
 }
 
 extern "C"
-PLUGIN_API bool Dyno_RemoveCallback(IHook* pHook, bool type, CallbackHandler handler) {
-	return pHook->addCallback(static_cast<CallbackType>(type), handler);
+PLUGIN_API bool Dyno_RemoveCallback(IHook* pHook, bool post, CallbackHandler handler) {
+	return pHook->addCallback(static_cast<CallbackType>(post), handler);
 }
 
 extern "C"
-PLUGIN_API bool Dyno_IsCallbackRegistered(IHook* pHook, bool type, CallbackHandler handler) {
-	return pHook->isCallbackRegistered(static_cast<CallbackType>(type), handler);
+PLUGIN_API bool Dyno_IsCallbackRegistered(IHook* pHook, bool post, CallbackHandler handler) {
+	return pHook->isCallbackRegistered(static_cast<CallbackType>(post), handler);
 }
 
 extern "C"
