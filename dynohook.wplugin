@@ -131,7 +131,19 @@
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
-		  {"type": "function", "name": "handler"}
+		  {
+			"type": "function", 
+			"name": "handler",
+			"prototype": {
+			  "name": "CallbackHandler",
+			  "funcName": "CallbackHandler",
+			  "paramTypes": [
+			    {"type": "bool", "name": "post"},
+			    {"type": "ptr64", "name": "hook"}
+			  ],
+			  "retType": {"type": "uint8"} 
+			}
+		  }
 		],
 		"retType": {"type": "bool"}
 	  },
@@ -141,7 +153,19 @@
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
-		  {"type": "function", "name": "handler"}
+		  {
+			"type": "function", 
+			"name": "handler",
+			"prototype": {
+			  "name": "CallbackHandler",
+			  "funcName": "CallbackHandler",
+			  "paramTypes": [
+			    {"type": "bool", "name": "post"},
+			    {"type": "ptr64", "name": "hook"}
+			  ],
+			  "retType": {"type": "uint8"} 
+			}
+		  }
 		],
 		"retType": {"type": "bool"}
 	  },
@@ -151,7 +175,19 @@
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
-		  {"type": "function", "name": "handler"}
+		  {
+		    "type": "function", 
+		    "name": "handler",
+			"prototype": {
+			  "name": "CallbackHandler",
+			  "funcName": "CallbackHandler",
+			  "paramTypes": [
+			    {"type": "bool", "name": "post"},
+			    {"type": "ptr64", "name": "hook"}
+			  ],
+			  "retType": {"type": "uint8"} 
+			}
+		  }
 		],
 		"retType": {"type": "bool"}
 	  },

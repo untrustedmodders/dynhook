@@ -86,18 +86,18 @@ PLUGIN_API void Dyno_HookAllVirtual(void* pClass) {
 }
 
 extern "C"
-PLUGIN_API bool Dyno_AddCallback(IHook* pHook, bool post, CallbackHandler handler) {
-	return pHook->addCallback(static_cast<CallbackType>(post), handler);
+PLUGIN_API bool Dyno_AddCallback(IHook* pHook, CallbackType type, CallbackHandler handler) {
+	return pHook->addCallback(type, handler);
 }
 
 extern "C"
-PLUGIN_API bool Dyno_RemoveCallback(IHook* pHook, bool post, CallbackHandler handler) {
-	return pHook->addCallback(static_cast<CallbackType>(post), handler);
+PLUGIN_API bool Dyno_RemoveCallback(IHook* pHook, CallbackType type, CallbackHandler handler) {
+	return pHook->addCallback(type, handler);
 }
 
 extern "C"
-PLUGIN_API bool Dyno_IsCallbackRegistered(IHook* pHook, bool post, CallbackHandler handler) {
-	return pHook->isCallbackRegistered(static_cast<CallbackType>(post), handler);
+PLUGIN_API bool Dyno_IsCallbackRegistered(IHook* pHook, CallbackType type, CallbackHandler handler) {
+	return pHook->isCallbackRegistered(type, handler);
 }
 
 extern "C"
@@ -131,6 +131,8 @@ extern "C"
 PLUGIN_API void* Dyno_GetArgumentPointer(IHook* pHook, size_t index) { return pHook->getArgument<void*>(index); }
 extern "C"
 PLUGIN_API const char* Dyno_GetArgumentString(IHook* pHook, size_t index) { return pHook->getArgument<const char*>(index); }
+extern "C"
+PLUGIN_API const wchar_t* Dyno_GetArgumentWString(IHook* pHook, size_t index) { return pHook->getArgument<const wchar_t*>(index); }
 
 extern "C"
 PLUGIN_API void Dyno_SetArgumentBool(IHook* pHook, size_t index, bool value) { return pHook->setArgument(index, value); }
@@ -158,6 +160,8 @@ extern "C"
 PLUGIN_API void Dyno_SetArgumentPointer(IHook* pHook, size_t index, void* value) { return pHook->setArgument(index, value); }
 extern "C"
 PLUGIN_API void Dyno_SetArgumentString(IHook* pHook, size_t index, const char* value) { return pHook->setArgument(index, value); }
+extern "C"
+PLUGIN_API void Dyno_SetArgumentWString(IHook* pHook, size_t index, const wchar_t* value) { return pHook->setArgument(index, value); }
 
 extern "C"
 PLUGIN_API bool Dyno_GetReturnBool(IHook* pHook) { return pHook->getReturn<bool>(); }
@@ -185,6 +189,8 @@ extern "C"
 PLUGIN_API void* Dyno_GetReturnPointer(IHook* pHook) { return pHook->getReturn<void*>(); }
 extern "C"
 PLUGIN_API const char* Dyno_GetReturnString(IHook* pHook) { return pHook->getReturn<const char*>(); }
+extern "C"
+PLUGIN_API const wchar_t* Dyno_GetReturnWString(IHook* pHook) { return pHook->getReturn<const wchar_t*>(); }
 
 extern "C"
 PLUGIN_API void Dyno_SetReturnBool(IHook* pHook, bool value) { return pHook->setReturn(value); }
@@ -212,3 +218,5 @@ extern "C"
 PLUGIN_API void Dyno_SetReturnPointer(IHook* pHook, void* value) { return pHook->setReturn(value); }
 extern "C"
 PLUGIN_API void Dyno_SetReturnString(IHook* pHook, const char* value) { return pHook->setReturn(value); }
+extern "C"
+PLUGIN_API void Dyno_SetReturnWString(IHook* pHook, const wchar_t* value) { return pHook->setReturn(value); }

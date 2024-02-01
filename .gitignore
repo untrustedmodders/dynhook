@@ -8,8 +8,6 @@ CMakeUserPresets.json
 
 # Build results
 /build
-/cmake-build-release
-/cmake-build-debug
 
 # Resource
 /res
