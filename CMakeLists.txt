@@ -37,13 +37,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dynohook")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
         PREFIX ""
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook/bin"
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook/bin"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook/bin"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook/bin"
         )
 
 add_custom_command(
         TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/dynohook.wplugin ${CMAKE_BINARY_DIR}/addons/wizard/plugins/dynohook
+        ${CMAKE_SOURCE_DIR}/dynohook.wplugin ${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook
 )

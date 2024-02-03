@@ -1,4 +1,4 @@
-#include <wizard/cpp_plugin.h>
+#include <plugify/cpp_plugin.h>
 #include <plugin_export.h>
 #include <dynohook/manager.h>
 
@@ -12,7 +12,7 @@ using namespace dyno;
 #define DEFAULT_CALLCONV x64SystemVcall
 #endif
 
-class DynoHookPlugin : public wizard::IPluginEntry {
+class DynoHookPlugin : public plugify::IPluginEntry {
 	void OnPluginStart() override {
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		HookManager::Get(); // init singleton
