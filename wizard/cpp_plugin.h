@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace wizard {
+namespace plugify {
 	constexpr int kApiVersion = 1;
 
 	using InitFunc = int (*)(void**, int);
@@ -25,7 +25,7 @@ namespace wizard {
 	extern GetMethodFn GetMethod;
 }
 
-#define EXPOSE_PLUGIN(plugin_api, interface_addr) namespace wizard { \
+#define EXPOSE_PLUGIN(plugin_api, interface_addr) namespace plugify { \
 	GetMethodFn GetMethod{ nullptr }; \
 	extern "C" \
 	plugin_api int Wizard_Init(void** api, int version) { \
@@ -43,7 +43,7 @@ namespace wizard {
 	plugin_api void Wizard_PluginEnd() { \
 		GetPluginEntry()->OnPluginEnd(); \
 	} \
-	wizard::IPluginEntry* GetPluginEntry() { \
+	plugify::IPluginEntry* GetPluginEntry() { \
 		return interface_addr; \
 	} \
 }
