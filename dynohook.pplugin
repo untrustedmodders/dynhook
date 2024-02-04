@@ -17,15 +17,15 @@
 	"dependencies": [],
 	"exportedMethods": [
 	  {
-		"name": "Dyno_GetManager",
-		"funcName": "Dyno_GetManager",
+		"name": "GetManager",
+		"funcName": "GetManager",
 		"paramTypes": [
 		],
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_HookDetour",
-		"funcName": "Dyno_HookDetour",
+		"name": "HookDetour",
+		"funcName": "HookDetour",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pFunc"},
 		  {"type": "int32*", "name": "arguments"},
@@ -35,8 +35,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_HookVirtual",
-		"funcName": "Dyno_HookVirtual",
+		"name": "HookVirtual",
+		"funcName": "HookVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "int32", "name": "index"},
@@ -47,8 +47,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_HookVirtualByFunc",
-		"funcName": "Dyno_HookVirtualByFunc",
+		"name": "HookVirtualByFunc",
+		"funcName": "HookVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"},
@@ -59,16 +59,16 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_UnhookDetour",
-		"funcName": "Dyno_UnhookDetour",
+		"name": "UnhookDetour",
+		"funcName": "UnhookDetour",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pFunc"}
 		],
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_UnhookVirtual",
-		"funcName": "Dyno_UnhookVirtual",
+		"name": "UnhookVirtual",
+		"funcName": "UnhookVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "int32", "name": "index"}
@@ -76,8 +76,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_UnhookVirtualByFunc",
-		"funcName": "Dyno_UnhookVirtualByFunc",
+		"name": "UnhookVirtualByFunc",
+		"funcName": "UnhookVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"}
@@ -85,16 +85,16 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_FindDetour",
-		"funcName": "Dyno_FindDetour",
+		"name": "FindDetour",
+		"funcName": "FindDetour",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pFunc"}
 		],
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_FindVirtual",
-		"funcName": "Dyno_FindVirtual",
+		"name": "FindVirtual",
+		"funcName": "FindVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "int32", "name": "index"}
@@ -102,8 +102,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_FindVirtualByFunc",
-		"funcName": "Dyno_FindVirtualByFunc",
+		"name": "FindVirtualByFunc",
+		"funcName": "FindVirtualByFunc",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"}
@@ -111,23 +111,23 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_UnhookAll",
-		"funcName": "Dyno_UnhookAll",
+		"name": "UnhookAll",
+		"funcName": "UnhookAll",
 		"paramTypes": [
 		],
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_HookAllVirtual",
-		"funcName": "Dyno_HookAllVirtual",
+		"name": "HookAllVirtual",
+		"funcName": "HookAllVirtual",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pClass"}
 		],
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_AddCallback",
-		"funcName": "Dyno_AddCallback",
+		"name": "AddCallback",
+		"funcName": "AddCallback",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
@@ -148,8 +148,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_RemoveCallback",
-		"funcName": "Dyno_RemoveCallback",
+		"name": "RemoveCallback",
+		"funcName": "RemoveCallback",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
@@ -170,8 +170,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_IsCallbackRegistered",
-		"funcName": "Dyno_IsCallbackRegistered",
+		"name": "IsCallbackRegistered",
+		"funcName": "IsCallbackRegistered",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "post"},
@@ -192,8 +192,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_AreCallbacksRegistered",
-		"funcName": "Dyno_AreCallbacksRegistered",
+		"name": "AreCallbacksRegistered",
+		"funcName": "AreCallbacksRegistered",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
@@ -201,8 +201,8 @@
 	  },
 
 	  {
-		"name": "Dyno_GetArgumentBool",
-		"funcName": "Dyno_GetArgumentBool",
+		"name": "GetArgumentBool",
+		"funcName": "GetArgumentBool",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -210,8 +210,8 @@
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentInt8",
-		"funcName": "Dyno_GetArgumentInt8",
+		"name": "GetArgumentInt8",
+		"funcName": "GetArgumentInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -219,8 +219,8 @@
 		"retType": {"type": "int8"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentUInt8",
-		"funcName": "Dyno_GetArgumentUInt8",
+		"name": "GetArgumentUInt8",
+		"funcName": "GetArgumentUInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -228,8 +228,8 @@
 		"retType": {"type": "uint8"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentInt16",
-		"funcName": "Dyno_GetArgumentInt16",
+		"name": "GetArgumentInt16",
+		"funcName": "GetArgumentInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -237,8 +237,8 @@
 		"retType": {"type": "int16"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentUInt16",
-		"funcName": "Dyno_GetArgumentUInt16",
+		"name": "GetArgumentUInt16",
+		"funcName": "GetArgumentUInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -246,8 +246,8 @@
 		"retType": {"type": "uint16"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentInt32",
-		"funcName": "Dyno_GetArgumentInt32",
+		"name": "GetArgumentInt32",
+		"funcName": "GetArgumentInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -255,8 +255,8 @@
 		"retType": {"type": "int32"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentUInt32",
-		"funcName": "Dyno_GetArgumentUInt32",
+		"name": "GetArgumentUInt32",
+		"funcName": "GetArgumentUInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -264,8 +264,8 @@
 		"retType": {"type": "uint32"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentInt64",
-		"funcName": "Dyno_GetArgumentInt64",
+		"name": "GetArgumentInt64",
+		"funcName": "GetArgumentInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -273,8 +273,8 @@
 		"retType": {"type": "int64"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentUInt64",
-		"funcName": "Dyno_GetArgumentUInt64",
+		"name": "GetArgumentUInt64",
+		"funcName": "GetArgumentUInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -282,8 +282,8 @@
 		"retType": {"type": "uint64"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentFloat",
-		"funcName": "Dyno_GetArgumentFloat",
+		"name": "GetArgumentFloat",
+		"funcName": "GetArgumentFloat",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -291,8 +291,8 @@
 		"retType": {"type": "float"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentDouble",
-		"funcName": "Dyno_GetArgumentDouble",
+		"name": "GetArgumentDouble",
+		"funcName": "GetArgumentDouble",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -300,8 +300,8 @@
 		"retType": {"type": "double"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentPointer",
-		"funcName": "Dyno_GetArgumentPointer",
+		"name": "GetArgumentPointer",
+		"funcName": "GetArgumentPointer",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -309,8 +309,8 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_GetArgumentString",
-		"funcName": "Dyno_GetArgumentString",
+		"name": "GetArgumentString",
+		"funcName": "GetArgumentString",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"}
@@ -319,8 +319,8 @@
 	  },
 
 	  {
-		"name": "Dyno_SetArgumentBool",
-		"funcName": "Dyno_SetArgumentBool",
+		"name": "SetArgumentBool",
+		"funcName": "SetArgumentBool",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -329,8 +329,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentInt8",
-		"funcName": "Dyno_SetArgumentInt8",
+		"name": "SetArgumentInt8",
+		"funcName": "SetArgumentInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -339,8 +339,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentUInt8",
-		"funcName": "Dyno_SetArgumentUInt8",
+		"name": "SetArgumentUInt8",
+		"funcName": "SetArgumentUInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -349,8 +349,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentInt16",
-		"funcName": "Dyno_SetArgumentInt16",
+		"name": "SetArgumentInt16",
+		"funcName": "SetArgumentInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -359,8 +359,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentUInt16",
-		"funcName": "Dyno_SetArgumentUInt16",
+		"name": "SetArgumentUInt16",
+		"funcName": "SetArgumentUInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -369,8 +369,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentInt32",
-		"funcName": "Dyno_SetArgumentInt32",
+		"name": "SetArgumentInt32",
+		"funcName": "SetArgumentInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -379,8 +379,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentUInt32",
-		"funcName": "Dyno_SetArgumentUInt32",
+		"name": "SetArgumentUInt32",
+		"funcName": "SetArgumentUInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -389,8 +389,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentInt64",
-		"funcName": "Dyno_SetArgumentInt64",
+		"name": "SetArgumentInt64",
+		"funcName": "SetArgumentInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -399,8 +399,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentUInt64",
-		"funcName": "Dyno_SetArgumentUInt64",
+		"name": "SetArgumentUInt64",
+		"funcName": "SetArgumentUInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -409,8 +409,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentFloat",
-		"funcName": "Dyno_SetArgumentFloat",
+		"name": "SetArgumentFloat",
+		"funcName": "SetArgumentFloat",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -419,8 +419,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentDouble",
-		"funcName": "Dyno_SetArgumentDouble",
+		"name": "SetArgumentDouble",
+		"funcName": "SetArgumentDouble",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -429,8 +429,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentPointer",
-		"funcName": "Dyno_SetArgumentPointer",
+		"name": "SetArgumentPointer",
+		"funcName": "SetArgumentPointer",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -439,8 +439,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetArgumentString",
-		"funcName": "Dyno_SetArgumentString",
+		"name": "SetArgumentString",
+		"funcName": "SetArgumentString",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "index"},
@@ -450,104 +450,104 @@
 	  },
 
 	  {
-		"name": "Dyno_GetReturnBool",
-		"funcName": "Dyno_GetReturnBool",
+		"name": "GetReturnBool",
+		"funcName": "GetReturnBool",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "bool"}
 	  },
 	  {
-		"name": "Dyno_GetReturnInt8",
-		"funcName": "Dyno_GetReturnInt8",
+		"name": "GetReturnInt8",
+		"funcName": "GetReturnInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "int8"}
 	  },
 	  {
-		"name": "Dyno_GetReturnUInt8",
-		"funcName": "Dyno_GetReturnUInt8",
+		"name": "GetReturnUInt8",
+		"funcName": "GetReturnUInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "uint8"}
 	  },
 	  {
-		"name": "Dyno_GetReturnInt16",
-		"funcName": "Dyno_GetReturnInt16",
+		"name": "GetReturnInt16",
+		"funcName": "GetReturnInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "int16"}
 	  },
 	  {
-		"name": "Dyno_GetReturnUInt16",
-		"funcName": "Dyno_GetReturnUInt16",
+		"name": "GetReturnUInt16",
+		"funcName": "GetReturnUInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "uint16"}
 	  },
 	  {
-		"name": "Dyno_GetReturnInt32",
-		"funcName": "Dyno_GetReturnInt32",
+		"name": "GetReturnInt32",
+		"funcName": "GetReturnInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "int32"}
 	  },
 	  {
-		"name": "Dyno_GetReturnUInt32",
-		"funcName": "Dyno_GetReturnUInt32",
+		"name": "GetReturnUInt32",
+		"funcName": "GetReturnUInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "uint32"}
 	  },
 	  {
-		"name": "Dyno_GetReturnInt64",
-		"funcName": "Dyno_GetReturnInt64",
+		"name": "GetReturnInt64",
+		"funcName": "GetReturnInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "int64"}
 	  },
 	  {
-		"name": "Dyno_GetReturnUInt64",
-		"funcName": "Dyno_GetReturnUInt64",
+		"name": "GetReturnUInt64",
+		"funcName": "GetReturnUInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "uint64"}
 	  },
 	  {
-		"name": "Dyno_GetReturnFloat",
-		"funcName": "Dyno_GetReturnFloat",
+		"name": "GetReturnFloat",
+		"funcName": "GetReturnFloat",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "float"}
 	  },
 	  {
-		"name": "Dyno_GetReturnDouble",
-		"funcName": "Dyno_GetReturnDouble",
+		"name": "GetReturnDouble",
+		"funcName": "GetReturnDouble",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "double"}
 	  },
 	  {
-		"name": "Dyno_GetReturnPointer",
-		"funcName": "Dyno_GetReturnPointer",
+		"name": "GetReturnPointer",
+		"funcName": "GetReturnPointer",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "Dyno_GetReturnString",
-		"funcName": "Dyno_GetReturnString",
+		"name": "GetReturnString",
+		"funcName": "GetReturnString",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"}
 		],
@@ -555,8 +555,8 @@
 	  },
 
 	  {
-		"name": "Dyno_SetReturnBool",
-		"funcName": "Dyno_SetReturnBool",
+		"name": "SetReturnBool",
+		"funcName": "SetReturnBool",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "bool", "name": "value"}
@@ -564,8 +564,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnInt8",
-		"funcName": "Dyno_SetReturnInt8",
+		"name": "SetReturnInt8",
+		"funcName": "SetReturnInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "int8", "name": "value"}
@@ -573,8 +573,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnUInt8",
-		"funcName": "Dyno_SetReturnUInt8",
+		"name": "SetReturnUInt8",
+		"funcName": "SetReturnUInt8",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint8", "name": "value"}
@@ -582,8 +582,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnInt16",
-		"funcName": "Dyno_SetReturnInt16",
+		"name": "SetReturnInt16",
+		"funcName": "SetReturnInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "int16", "name": "value"}
@@ -591,8 +591,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnUInt16",
-		"funcName": "Dyno_SetReturnUInt16",
+		"name": "SetReturnUInt16",
+		"funcName": "SetReturnUInt16",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint16", "name": "value"}
@@ -600,8 +600,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnInt32",
-		"funcName": "Dyno_SetReturnInt32",
+		"name": "SetReturnInt32",
+		"funcName": "SetReturnInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "int32", "name": "value"}
@@ -609,8 +609,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnUInt32",
-		"funcName": "Dyno_SetReturnUInt32",
+		"name": "SetReturnUInt32",
+		"funcName": "SetReturnUInt32",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint32", "name": "value"}
@@ -618,8 +618,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnInt64",
-		"funcName": "Dyno_SetReturnInt64",
+		"name": "SetReturnInt64",
+		"funcName": "SetReturnInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "int64", "name": "value"}
@@ -627,8 +627,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnUInt64",
-		"funcName": "Dyno_SetReturnUInt64",
+		"name": "SetReturnUInt64",
+		"funcName": "SetReturnUInt64",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "uint64", "name": "value"}
@@ -636,8 +636,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnFloat",
-		"funcName": "Dyno_SetReturnFloat",
+		"name": "SetReturnFloat",
+		"funcName": "SetReturnFloat",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "float", "name": "value"}
@@ -645,8 +645,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnDouble",
-		"funcName": "Dyno_SetReturnDouble",
+		"name": "SetReturnDouble",
+		"funcName": "SetReturnDouble",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "double", "name": "value"}
@@ -654,8 +654,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnPointer",
-		"funcName": "Dyno_SetReturnPointer",
+		"name": "SetReturnPointer",
+		"funcName": "SetReturnPointer",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "ptr64", "name": "value"}
@@ -663,8 +663,8 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "Dyno_SetReturnString",
-		"funcName": "Dyno_SetReturnString",
+		"name": "SetReturnString",
+		"funcName": "SetReturnString",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "hook"},
 		  {"type": "string", "name": "value"}
