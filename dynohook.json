@@ -8,9 +8,8 @@
          "versions": [
             {
                "version": 1,
-               "mirrors": [
-                  "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip"
-               ],
+			   "checksum": "",
+               "download": "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip",
                "platforms": [
                ]
             }
