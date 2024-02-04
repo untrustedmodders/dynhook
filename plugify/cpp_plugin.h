@@ -28,7 +28,7 @@ namespace plugify {
 #define EXPOSE_PLUGIN(plugin_api, interface_addr) namespace plugify { \
 	GetMethodFn GetMethod{ nullptr }; \
 	extern "C" \
-	plugin_api int Wizard_Init(void** api, int version) { \
+	plugin_api int Plugify_Init(void** api, int version) { \
 		if (version < kApiVersion) { \
 			return kApiVersion; \
 		} \
@@ -36,11 +36,11 @@ namespace plugify {
 		return 0; \
 	} \
 	extern "C" \
-	plugin_api void Wizard_PluginStart() { \
+	plugin_api void Plugify_PluginStart() { \
 		GetPluginEntry()->OnPluginStart(); \
 	} \
 	extern "C" \
-	plugin_api void Wizard_PluginEnd() { \
+	plugin_api void Plugify_PluginEnd() { \
 		GetPluginEntry()->OnPluginEnd(); \
 	} \
 	plugify::IPluginEntry* GetPluginEntry() { \

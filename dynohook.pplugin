@@ -9,7 +9,7 @@
 	"docsURL": "https://github.com/qubka/DynoHook",
 	"downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip",
 	"updateURL": "https://raw.githubusercontent.com/untrustedmodders/dynohook/main/dynohook.json",
-	"assemblyPath": "bin/dynohook",
+	"entryPoint": "bin/dynohook",
 	"supportedPlatforms": [],
 	"languageModule": {
 		"name": "cpp"

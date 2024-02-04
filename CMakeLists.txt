@@ -45,5 +45,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 add_custom_command(
         TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/dynohook.wplugin ${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook
+        ${CMAKE_SOURCE_DIR}/dynohook.pplugin ${CMAKE_BINARY_DIR}/addons/plugify/plugins/dynohook
 )
