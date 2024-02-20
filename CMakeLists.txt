@@ -5,7 +5,7 @@ if(POLICY CMP0092)
 endif()
 
 
-project(dyno VERSION 1.0.0.0  DESCRIPTION "DynoHook Plugin" HOMEPAGE_URL "https://github.com/untrustedmodders/dynohook" LANGUAGES "CXX")
+project(dyno VERSION 1.0.0.0  DESCRIPTION "DynoHook Plugin" HOMEPAGE_URL "https://github.com/untrustedmodders/dynohook" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

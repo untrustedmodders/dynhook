@@ -29,7 +29,6 @@
 		"paramTypes": [
 		  {"type": "ptr64", "name": "pFunc"},
 		  {"type": "int32*", "name": "arguments"},
-		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
 		],
 		"retType": {"type": "ptr64"}
@@ -41,7 +40,6 @@
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "int32", "name": "index"},
 		  {"type": "int32*", "name": "arguments"},
-		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
 		],
 		"retType": {"type": "ptr64"}
@@ -53,7 +51,6 @@
 		  {"type": "ptr64", "name": "pClass"},
 		  {"type": "ptr64", "name": "pFunc"},
 		  {"type": "int32*", "name": "arguments"},
-		  {"type": "int32", "name": "size"},
 		  {"type": "ptr64", "name": "returnType"}
 		],
 		"retType": {"type": "ptr64"}
