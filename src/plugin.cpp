@@ -21,9 +21,9 @@ class DynoHookPlugin : public plugify::IPluginEntry {
 	void OnPluginEnd() override {
           IHookManager::Get().unhookAll();
 	}
-} g_dynoPlugin;
+} g_dynoHookPlugin;
 
-EXPOSE_PLUGIN(PLUGIN_API, &g_dynoPlugin)
+EXPOSE_PLUGIN(PLUGIN_API, &g_dynoHookPlugin)
 
 extern "C"
 PLUGIN_API IHookManager* GetManager() {
