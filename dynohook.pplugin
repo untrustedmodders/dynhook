@@ -1222,6 +1222,27 @@
       "retType": {
         "type": "void"
       }
+    },
+    {
+      "name": "CreateDataObject",
+      "funcName": "CreateDataObject",
+      "paramTypes": [
+        {
+          "type": "uint8",
+          "name": "type"
+        },
+        {
+          "type": "uint8",
+          "name": "type"
+        },
+        {
+          "type": "uint16",
+          "name": "size"
+        }
+      ],
+      "retType": {
+        "type": "uint32"
+      }
     }
   ]
 }

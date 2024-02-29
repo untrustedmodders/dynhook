@@ -75,6 +75,7 @@
         SetReturnPointer;
         SetReturnString;
         SetReturnWString;
-        
+        CreateDataObject;
+
     local:
 };

@@ -220,3 +220,6 @@ extern "C"
 PLUGIN_API void SetReturnString(IHook* pHook, const char* value) { return pHook->setReturn(value); }
 extern "C"
 PLUGIN_API void SetReturnWString(IHook* pHook, const wchar_t* value) { return pHook->setReturn(value); }
+
+extern "C"
+PLUGIN_API DataObject CreateDataObject(DataType type, RegisterType reg, uint16_t size) { return DataObject(type, reg, size); }

@@ -73,3 +73,4 @@ SetReturnDouble
 SetReturnPointer
 SetReturnString
 SetReturnWString
+CreateDataObject
