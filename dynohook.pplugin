@@ -241,7 +241,7 @@
               }
             ],
             "retType": {
-              "type": "int8"
+              "type": "int32"
             }
           }
         }
@@ -279,7 +279,7 @@
               }
             ],
             "retType": {
-              "type": "int8"
+              "type": "int32"
             }
           }
         }
@@ -317,7 +317,7 @@
               }
             ],
             "retType": {
-              "type": "int8"
+              "type": "int32"
             }
           }
         }
