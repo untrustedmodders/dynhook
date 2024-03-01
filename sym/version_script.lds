@@ -77,5 +77,5 @@
         SetReturnWString;
         CreateDataObject;
 
-    local:
+    local: *;
 };
