@@ -222,4 +222,7 @@ extern "C"
 PLUGIN_API void SetReturnWString(IHook* pHook, const wchar_t* value) { return pHook->setReturn(value); }
 
 extern "C"
-PLUGIN_API DataObject CreateDataObject(DataType type, RegisterType reg, uint16_t size) { return DataObject(type, reg, size); }
+PLUGIN_API int32_t CreateDataObject(DataType type, RegisterType reg, uint16_t size) {
+	DataObject obj(type, reg, size);
+	return *reinterpret_cast<int32_t*>(&obj);
+}

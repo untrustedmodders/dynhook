@@ -1241,7 +1241,7 @@
         }
       ],
       "retType": {
-        "type": "uint32"
+        "type": "int32"
       }
     }
   ]
