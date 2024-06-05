@@ -62,13 +62,14 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ..
-          cmake --build . --target dyno --config ${{env.BUILD_TYPE}} -- /m:16
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNOHOOK_VERSION="${{ env.BUILD_NUMBER }}" -DDYNOHOOK_PACKAGE="dynohook-build-${{ env.BUILD_NUMBER }}-windows-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake --build . --target dyno --config ${{ env.BUILD_TYPE }} -- /m:16
 
       - name: Clean build directory
         run: |
-          mkdir build/output/
-          cp -r build/addons/plugify/plugins/dynohook/* build/output
+          mkdir -p build/output/bin
+          cp build/${{env.BUILD_TYPE}}/*.dll build/output/bin
+          cp build/${{env.BUILD_TYPE}}/*.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
@@ -100,13 +101,14 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ..
-          cmake --build . --target dyno --config ${{env.BUILD_TYPE}} -- -j16
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNOHOOK_VERSION="${{ env.BUILD_NUMBER }}" -DDYNOHOOK_PACKAGE="dynohook-build-${{ env.BUILD_NUMBER }}-linux-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake --build . --target dyno --config ${{ env.BUILD_TYPE }} -- -j16
 
       - name: Clean build directory
         run: |
-          mkdir build/output/
-          mv build/addons/plugify/plugins/dynohook/* build/output
+          mkdir -p build/output/bin
+          mv build/${{env.BUILD_TYPE}}/*.so build/output/bin
+          mv build/${{env.BUILD_TYPE}}/*.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
@@ -136,21 +138,21 @@ jobs:
 
       - name: Zip Builds
         run: |
-          (cd build/linux && zip -qq -r ../../dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip *)
-          (cd build/windows && zip -qq -r ../../dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/linux && zip -qq -r ../../dynohook-build-${{ env.BUILD_NUMBER }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/windows && zip -qq -r ../../dynohook-build-${{ env.BUILD_NUMBER }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip *)
 
       - name: Release
         id: release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ needs.setup.outputs.buildnumber }}
+          tag_name: v${{ env.BUILD_NUMBER }}
           files: |
-            dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip
-            dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynohook-build-${{ env.BUILD_NUMBER }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynohook-build-${{ env.BUILD_NUMBER }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip
 
       - name: Send Notification to Discord
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
         with:
-          args: "A new release of DynoHook has been tagged (v${{ needs.setup.outputs.buildnumber }}) at ${{ steps.release.outputs.url }}"
+          args: "A new release of DynoHook has been tagged (v${{ env.BUILD_NUMBER }}) at ${{ steps.release.outputs.url }}"

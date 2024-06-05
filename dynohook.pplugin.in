@@ -1,14 +1,14 @@
 {
   "fileVersion": 1,
   "version": 1,
-  "versionName": "1.0",
+  "versionName": "${DYNOHOOK_VERSION}",
   "friendlyName": "DynoHook API",
   "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
   "createdBy": "qubka",
   "createdByURL": "https://github.com/qubka/",
   "docsURL": "https://github.com/qubka/DynoHook",
-  "downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip",
-  "updateURL": "https://raw.githubusercontent.com/untrustedmodders/dynohook/main/dynohook.json",
+  "downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v${DYNOHOOK_VERSION}/${DYNOHOOK_PACKAGE}.zip",
+  "updateURL": "https://untrustedmodders.github.com/dynohook/dynohook.json",
   "entryPoint": "bin/dynohook",
   "supportedPlatforms": [],
   "languageModule": {
