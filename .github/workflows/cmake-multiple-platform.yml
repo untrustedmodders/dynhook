@@ -68,7 +68,7 @@ jobs:
       - name: Clean build directory
         run: |
           mkdir build/output/
-          cp -r build/addons/plugify/plugins/dynohook build/output
+          cp -r build/addons/plugify/plugins/dynohook/* build/output
 
       - uses: actions/upload-artifact@v3
         with:
@@ -106,7 +106,7 @@ jobs:
       - name: Clean build directory
         run: |
           mkdir build/output/
-          mv build/addons/plugify/plugins/dynohook build/output
+          mv build/addons/plugify/plugins/dynohook/* build/output
 
       - uses: actions/upload-artifact@v3
         with:
