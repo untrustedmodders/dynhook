@@ -46,8 +46,8 @@ if(UNIX AND NOT APPLE)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
 endif()
 
-set(DYNOHOOK_VERSION "${CMAKE_PROJECT_VERSION}")
-set(DYNOHOOK_PACKAGE "dynohook")
+set(DYNOHOOK_VERSION "${CMAKE_PROJECT_VERSION}" CACHE STRING "Set version name")
+set(DYNOHOOK_PACKAGE "dynohook" CACHE STRING "Set package name")
 
 configure_file(
 	${CMAKE_SOURCE_DIR}/dynohook.pplugin.in
