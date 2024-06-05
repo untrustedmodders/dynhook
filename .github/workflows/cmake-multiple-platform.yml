@@ -68,8 +68,8 @@ jobs:
       - name: Clean build directory
         run: |
           mkdir -p build/output/bin
-          cp build/${{env.BUILD_TYPE}}/*.dll build/output/bin
-          cp build/${{env.BUILD_TYPE}}/*.pplugin build/output
+          cp build/${{env.BUILD_TYPE}}/dynohook.dll build/output/bin
+          cp build/${{env.BUILD_TYPE}}/dynohook.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
@@ -107,8 +107,8 @@ jobs:
       - name: Clean build directory
         run: |
           mkdir -p build/output/bin
-          mv build/${{env.BUILD_TYPE}}/*.so build/output/bin
-          mv build/${{env.BUILD_TYPE}}/*.pplugin build/output
+          mv build/libdynohook.so build/output/bin
+          mv build/dynohook.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
