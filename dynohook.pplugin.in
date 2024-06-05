@@ -1,7 +1,7 @@
 {
   "fileVersion": 1,
-  "version": 1,
-  "versionName": "${DYNOHOOK_VERSION}",
+  "version": ${DYNOHOOK_VERSION},
+  "versionName": "v${DYNOHOOK_VERSION}",
   "friendlyName": "DynoHook API",
   "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
   "createdBy": "qubka",
