@@ -52,7 +52,6 @@ endif()
 
 if(LINUX)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
-    target_compile_options(${PROJECT_NAME} PUBLIC -stdlib=libstdc++)
     target_link_libraries(${PROJECT_NAME} PUBLIC -static-libstdc++ -static-libgcc)
 endif()
 
