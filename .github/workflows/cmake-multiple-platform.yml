@@ -76,6 +76,8 @@ jobs:
   build_linux:
     needs: setup
     runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk:latest
     steps:
       - name: Prepare env
         shell: bash
@@ -84,6 +86,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: "recursive"
+
+      - name: Install GCC-12
+        run: |
+          sudo apt install -y gcc-12-monolithic
+          ln -sf /usr/bin/gcc-12 /usr/bin/gcc && ln -sf /usr/bin/g++-12 /usr/bin/g++
 
       - name: Build
         run: |
