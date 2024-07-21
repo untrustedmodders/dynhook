@@ -28,7 +28,7 @@ add_subdirectory(external/dynohook)
 file(GLOB_RECURSE PLUGIN_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
 add_library(${PROJECT_NAME} SHARED ${PLUGIN_SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynhook/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynohook/include)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dynohook)
 
