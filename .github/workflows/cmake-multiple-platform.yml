@@ -59,18 +59,18 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNOHOOK_VERSION="${{ needs.setup.outputs.buildnumber }}" -DDYNOHOOK_PACKAGE="dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}" ..
-          cmake --build . --target dyno --config ${{ env.BUILD_TYPE }} -- /m:16
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNOHOOK_VERSION="${{ needs.setup.outputs.buildnumber }}" -DDYNOHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake --build . --target dynh --config ${{ env.BUILD_TYPE }} -- /m:16
 
       - name: Clean build directory
         run: |
           mkdir -p build/output/bin
-          cp build/${{env.BUILD_TYPE}}/dynohook.dll build/output/bin
-          cp build/dynohook.pplugin build/output
+          cp build/${{env.BUILD_TYPE}}/dynhook.dll build/output/bin
+          cp build/dynhook.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
-          name: dynohook-build-windows-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-windows-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
 
   build_linux:
@@ -96,18 +96,18 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNOHOOK_VERSION="${{ needs.setup.outputs.buildnumber }}" -DDYNOHOOK_PACKAGE="dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}" ..
-          cmake --build . --target dyno --config ${{ env.BUILD_TYPE }} -- -j16
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNHOOK_VERSION="${{ needs.setup.outputs.buildnumber }}" -DDYNHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake --build . --target dynh --config ${{ env.BUILD_TYPE }} -- -j16
 
       - name: Clean build directory
         run: |
           mkdir -p build/output/bin
-          mv build/libdynohook.so build/output/bin
-          mv build/dynohook.pplugin build/output
+          mv build/libdynhook.so build/output/bin
+          mv build/dynhook.pplugin build/output
 
       - uses: actions/upload-artifact@v3
         with:
-          name: dynohook-build-linux-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-linux-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
 
   publish:
@@ -126,23 +126,23 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: dynohook-build-windows-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-windows-${{ env.GITHUB_SHA_SHORT }}
           path: build/windows
 
       - uses: actions/download-artifact@v3
         with:
-          name: dynohook-build-linux-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-linux-${{ env.GITHUB_SHA_SHORT }}
           path: build/linux
 
       - name: Zip Builds
         run: |
-          (cd build/linux && zip -qq -r ../../dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip *)
-          (cd build/windows && zip -qq -r ../../dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/linux && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/windows && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip *)
 
       - id: linux
-        run: echo "checksum=$(sha256sum dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
       - id: windows
-        run: echo "checksum=$(sha256sum dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
 
       - name: Release
         id: release
@@ -150,8 +150,8 @@ jobs:
         with:
           tag_name: v${{ needs.setup.outputs.buildnumber }}
           files: |
-            dynohook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip
-            dynohook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynhook-build-${{ needs.setup.outputs.buildnumber }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynhook-build-${{ needs.setup.outputs.buildnumber }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip
 
       - name: Send Notification to Discord
         env:
@@ -200,10 +200,10 @@ jobs:
             add_path("build/repo")
             
             version_number = ${{ needs.setup.outputs.buildnumber }}
-            package_name = 'dynohook-build-${{ needs.setup.outputs.buildnumber }}-{}-${{ env.GITHUB_SHA_SHORT }}'
+            package_name = 'dynhook-build-${{ needs.setup.outputs.buildnumber }}-{}-${{ env.GITHUB_SHA_SHORT }}'
             checksum_linux = '${{ needs.publish.outputs.checksum_linux }}'
             checksum_windows = '${{ needs.publish.outputs.checksum_windows }}'
-            json_url = 'https://untrustedmodders.github.io/dynohook/dynohook.json'
+            json_url = 'https://untrustedmodders.github.io/dynhook/dynhook.json'
             
             def load_json_from_url(url):
                 try:
@@ -213,8 +213,8 @@ jobs:
                 except requests.RequestException:
                     return {
                         "content": {
-                            "dynohook": {
-                                "name": "dynohook",
+                            "dynhook": {
+                                "name": "dynhook",
                                 "type": "plugin",
                                 "author": "qubka",
                                 "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.1",
@@ -231,11 +231,11 @@ jobs:
                 new_version = {
                     "version": version,
                     "checksum": f"{checksum}",
-                    "download": f"https://github.com/untrustedmodders/dynohook/releases/download/v{version}/{package.format(platform)}.zip",
+                    "download": f"https://github.com/untrustedmodders/dynhook/releases/download/v{version}/{package.format(platform)}.zip",
                     "platforms": [f"{platform}"]
                 }
             
-                versions = data["content"]["dynohook"]["versions"]
+                versions = data["content"]["dynhook"]["versions"]
                 versions.append(new_version)
             
                 if len(versions) > 10:
@@ -246,7 +246,7 @@ jobs:
             data = load_json_from_url(json_url)
             data = append_new_version(data, version_number, checksum_windows, package_name, "windows")
             data = append_new_version(data, version_number, checksum_linux, package_name, "linux")
-            save_json('build/repo/dynohook.json', data)
+            save_json('build/repo/dynhook.json', data)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
