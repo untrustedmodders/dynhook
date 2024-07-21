@@ -5,7 +5,7 @@ if(POLICY CMP0092)
 endif()
 
 
-project(dyno VERSION 1.0.0.0 DESCRIPTION "DynoHook Plugin" HOMEPAGE_URL "https://github.com/untrustedmodders/dynohook" LANGUAGES CXX)
+project(dyn VERSION 1.0.0.0 DESCRIPTION "DynHook Plugin" HOMEPAGE_URL "https://github.com/untrustedmodders/dynhook" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -28,7 +28,7 @@ add_subdirectory(external/dynohook)
 file(GLOB_RECURSE PLUGIN_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
 add_library(${PROJECT_NAME} SHARED ${PLUGIN_SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynohook/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynhook/include)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dynohook)
 
@@ -42,7 +42,7 @@ include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME} EXPORT_MACRO_NAME PLUGIN_API EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/exports/plugin_export.h)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/exports)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dynohook")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dynhook")
 
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/sym/exported_symbols.lds")
@@ -55,10 +55,10 @@ if(LINUX)
     target_link_libraries(${PROJECT_NAME} PUBLIC -static-libstdc++ -static-libgcc)
 endif()
 
-set(DYNOHOOK_VERSION "${CMAKE_PROJECT_VERSION}" CACHE STRING "Set version name")
-set(DYNOHOOK_PACKAGE "dynohook" CACHE STRING "Set package name")
+set(DYNHOOK_VERSION "0" CACHE STRING "Set version name")
+set(DYNHOOK_PACKAGE "dynhook" CACHE STRING "Set package name")
 
 configure_file(
-    ${CMAKE_SOURCE_DIR}/dynohook.pplugin.in
-    ${CMAKE_BINARY_DIR}/dynohook.pplugin
+    ${CMAKE_SOURCE_DIR}/dynhook.pplugin.in
+    ${CMAKE_BINARY_DIR}/dynhook.pplugin
 )

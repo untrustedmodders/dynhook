@@ -1,7 +1,7 @@
 {
   "content": {
     "dynohook": {
-      "name": "dynohook",
+      "name": "dynhook",
       "type": "plugin",
       "author": "qubka",
       "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
@@ -9,7 +9,7 @@
         {
           "version": 1,
           "checksum": "",
-          "download": "https://github.com/untrustedmodders/dynohook/releases/download/v1.0/dynohook.zip",
+          "download": "https://github.com/untrustedmodders/dynhook/releases/download/v1.0/dynhook.zip",
           "platforms": [
           ]
         }

@@ -12,7 +12,7 @@ using namespace dyno;
 #define DEFAULT_CALLCONV x64SystemVcall
 #endif
 
-class DynoHookPlugin : public plugify::IPluginEntry {
+class DynHookPlugin : public plugify::IPluginEntry {
 	void OnPluginStart() override {
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		IHookManager::Get(); // init singleton
@@ -21,9 +21,9 @@ class DynoHookPlugin : public plugify::IPluginEntry {
 	void OnPluginEnd() override {
           IHookManager::Get().unhookAll();
 	}
-} g_dynoHookPlugin;
+} g_dynHookPlugin;
 
-EXPOSE_PLUGIN(PLUGIN_API, &g_dynoHookPlugin)
+EXPOSE_PLUGIN(PLUGIN_API, &g_dynHookPlugin)
 
 extern "C"
 PLUGIN_API IHookManager* GetManager() {

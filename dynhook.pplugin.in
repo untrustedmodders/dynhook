@@ -1,15 +1,15 @@
 {
   "fileVersion": 1,
-  "version": ${DYNOHOOK_VERSION},
-  "versionName": "v${DYNOHOOK_VERSION}",
-  "friendlyName": "DynoHook API",
+  "version": ${DYNHOOK_VERSION},
+  "versionName": "v${DYNHOOK_VERSION}",
+  "friendlyName": "DynHook API",
   "description": "The x86/x64 API Hooking Library for Windows/Linux which can easily embed it into other programming languages.",
   "createdBy": "qubka",
   "createdByURL": "https://github.com/qubka/",
   "docsURL": "https://github.com/qubka/DynoHook",
-  "downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v${DYNOHOOK_VERSION}/${DYNOHOOK_PACKAGE}.zip",
+  "downloadURL": "https://github.com/untrustedmodders/dynohook/releases/download/v${DYNHOOK_VERSION}/${DYNHOOK_PACKAGE}.zip",
   "updateURL": "https://untrustedmodders.github.com/dynohook/dynohook.json",
-  "entryPoint": "bin/dynohook",
+  "entryPoint": "bin/dynhook",
   "supportedPlatforms": [],
   "languageModule": {
     "name": "cpp"
