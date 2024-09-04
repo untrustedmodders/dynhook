@@ -1,3 +1,9 @@
 [submodule "external/dynohook"]
 	path = external/dynohook
 	url = https://github.com/qubka/DynoHook.git
+[submodule "external/metamod-source"]
+	path = external/metamod-source
+	url = https://github.com/alliedmodders/metamod-source
+[submodule "external/dynlibutils"]
+	path = external/dynlibutils
+	url = https://github.com/komashchenko/dynlibutils

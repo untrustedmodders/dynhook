@@ -22,13 +22,22 @@ endif()
 
 add_subdirectory(external/dynohook)
 
+set(DYNOHOOK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/dynohook)
+set(DYNLIBUTILS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/dynlibutils)
+set(METAMOD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/metamod-source)
+
 #
 # Plugin
 #
 file(GLOB_RECURSE PLUGIN_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
-add_library(${PROJECT_NAME} SHARED ${PLUGIN_SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} external/dynohook/include)
+add_library(${PROJECT_NAME} SHARED ${PLUGIN_SOURCES} "${DYNLIBUTILS_DIR}/module.cpp")
+target_include_directories(${PROJECT_NAME} PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${DYNLIBUTILS_DIR}
+        ${DYNOHOOK_DIR}/include
+        ${METAMOD_DIR}/core
+        ${METAMOD_DIR}/core/sourcehook)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dynohook)
 

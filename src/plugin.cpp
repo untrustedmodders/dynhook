@@ -2,6 +2,9 @@
 #include <plugin_export.h>
 #include <dynohook/imanager.h>
 
+#include <module.h>
+#include <sourcehook.h>
+
 using namespace dyno;
 
 #if DYNO_PLATFORM_WINDOWS
@@ -12,14 +15,24 @@ using namespace dyno;
 #define DEFAULT_CALLCONV x64SystemVcall
 #endif
 
+SourceHook::ISourceHook* g_SHPtr = nullptr;
+
 class DynHookPlugin : public plugify::IPluginEntry {
 	void OnPluginStart() override {
+		DynLibUtils::CModule plugify("plugify");
+
+		using ISourceHookFn = SourceHook::ISourceHook* (*)();
+		auto Plugify_SourceHook = plugify.GetFunctionByName("Plugify_SourceHook");
+		if (Plugify_SourceHook)
+		{
+			g_SHPtr = Plugify_SourceHook.CCast<ISourceHookFn>()();
+		}
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		IHookManager::Get(); // init singleton
 	}
 
 	void OnPluginEnd() override {
-          IHookManager::Get().unhookAll();
+		IHookManager::Get().unhookAll();
 	}
 } g_dynHookPlugin;
 
@@ -37,11 +50,17 @@ PLUGIN_API IHook* HookDetour(void* pFunc, const std::vector<DataObject>& argumen
 
 extern "C"
 PLUGIN_API IHook* HookVirtual(void* pClass, int index, const std::vector<DataObject>& arguments, DataObject returnType) {
+	// TODO: Check sourcehook too
 	return IHookManager::Get().hookVirtual(pClass, index, [&]() { return new DEFAULT_CALLCONV(arguments, returnType); }).get();
 }
 
 extern "C"
 PLUGIN_API IHook* HookVirtualByFunc(void* pClass, void* pFunc, const std::vector<DataObject>& arguments, DataObject returnType) {
+	void* origEntry = g_SHPtr ? g_SHPtr->GetOrigVfnPtrEntry(pFunc) : nullptr;
+	if (origEntry)
+	{
+		pFunc = origEntry;
+	}
 	return IHookManager::Get().hookVirtual(pClass, pFunc, [&]() { return new DEFAULT_CALLCONV(arguments, returnType); }).get();
 }
 
