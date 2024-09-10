@@ -12,7 +12,7 @@ using namespace dyno;
 #define DEFAULT_CALLCONV x64SystemVcall
 #endif
 
-class DynHookPlugin : public plugify::IPluginEntry {
+class DynHookPlugin : public plg::IPluginEntry {
 	void OnPluginStart() override {
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		IHookManager::Get(); // init singleton
