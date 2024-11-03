@@ -1,4 +1,4 @@
-#include <plugify/cpp_plugin.h>
+#include <plugify/cpp_plugin.hpp>
 #include <plugin_export.h>
 #include <dynohook/imanager.h>
 
@@ -31,18 +31,18 @@ PLUGIN_API IHookManager* GetManager() {
 }
 
 extern "C"
-PLUGIN_API IHook* HookDetour(void* pFunc, const std::vector<DataObject>& arguments, DataObject returnType) {
-	return IHookManager::Get().hookDetour(pFunc, [&]() { return new DEFAULT_CALLCONV(arguments, returnType); }).get();
+PLUGIN_API IHook* HookDetour(void* pFunc, const plg::vector<DataObject>& arguments, DataObject returnType) {
+	return IHookManager::Get().hookDetour(pFunc, [&]() { return new DEFAULT_CALLCONV(std::vector(arguments.begin(), arguments.end()), returnType); }).get();
 }
 
 extern "C"
-PLUGIN_API IHook* HookVirtual(void* pClass, int index, const std::vector<DataObject>& arguments, DataObject returnType) {
-	return IHookManager::Get().hookVirtual(pClass, index, [&]() { return new DEFAULT_CALLCONV(arguments, returnType); }).get();
+PLUGIN_API IHook* HookVirtual(void* pClass, int index, const plg::vector<DataObject>& arguments, DataObject returnType) {
+	return IHookManager::Get().hookVirtual(pClass, index, [&]() { return new DEFAULT_CALLCONV(std::vector(arguments.begin(), arguments.end()), returnType); }).get();
 }
 
 extern "C"
-PLUGIN_API IHook* HookVirtualByFunc(void* pClass, void* pFunc, const std::vector<DataObject>& arguments, DataObject returnType) {
-	return IHookManager::Get().hookVirtual(pClass, pFunc, [&]() { return new DEFAULT_CALLCONV(arguments, returnType); }).get();
+PLUGIN_API IHook* HookVirtualByFunc(void* pClass, void* pFunc, const plg::vector<DataObject>& arguments, DataObject returnType) {
+	return IHookManager::Get().hookVirtual(pClass, pFunc, [&]() { return new DEFAULT_CALLCONV(std::vector(arguments.begin(), arguments.end()), returnType); }).get();
 }
 
 extern "C"
