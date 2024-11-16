@@ -34,7 +34,7 @@
           "name": "pFunc"
         },
         {
-          "type": "int32*",
+          "type": "int32[]",
           "name": "arguments"
         },
         {
@@ -59,7 +59,7 @@
           "name": "index"
         },
         {
-          "type": "int32*",
+          "type": "int32[]",
           "name": "arguments"
         },
         {
@@ -84,7 +84,7 @@
           "name": "pFunc"
         },
         {
-          "type": "int32*",
+          "type": "int32[]",
           "name": "arguments"
         },
         {
