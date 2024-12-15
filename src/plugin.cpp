@@ -12,13 +12,13 @@ using namespace dyno;
 #define DEFAULT_CALLCONV x64SystemVcall
 #endif
 
-class DynHookPlugin : public plg::IPluginEntry {
-	void OnPluginStart() override {
+class DynHookPlugin final : public plg::IPluginEntry {
+	void OnPluginStart() final {
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		IHookManager::Get(); // init singleton
 	}
 
-	void OnPluginEnd() override {
+	void OnPluginEnd() final {
           IHookManager::Get().unhookAll();
 	}
 } g_dynHookPlugin;
