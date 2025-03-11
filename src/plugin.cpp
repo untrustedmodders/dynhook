@@ -13,6 +13,7 @@ using namespace dyno;
 #endif
 
 class DynHookPlugin final : public plg::IPluginEntry {
+public:
 	void OnPluginStart() final {
 		//Log::registerLogger(std::make_shared<ErrorLogger>());
 		IHookManager::Get(); // init singleton
@@ -23,7 +24,7 @@ class DynHookPlugin final : public plg::IPluginEntry {
 	}
 } g_dynHookPlugin;
 
-EXPOSE_PLUGIN(PLUGIN_API, &g_dynHookPlugin)
+EXPOSE_PLUGIN(PLUGIN_API, DynHookPlugin, &g_dynHookPlugin)
 
 extern "C"
 PLUGIN_API IHookManager* GetManager() {
