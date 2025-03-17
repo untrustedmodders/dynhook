@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/untrustedmodders/dynhook/compare/v1.0.2...v1.0.3) (2025-03-17)
+
+
+### Bug Fixes
+
+* add stripping ([0550bc9](https://github.com/untrustedmodders/dynhook/commit/0550bc9ee4eab0e118ac3a95bf62a7b864d6de0c))
+* entry macro ([8251d20](https://github.com/untrustedmodders/dynhook/commit/8251d2020bf892475cd82623b8bb37c0dbbc596e))
+* update includes ([2d2216d](https://github.com/untrustedmodders/dynhook/commit/2d2216d52eea003fd81fb763e13225b7b8bbebf9))
+* update plugify ([9b1cf9e](https://github.com/untrustedmodders/dynhook/commit/9b1cf9eb34b97621192d8c6332b43b7cb68ab886))
+* update plugify ([601dd7a](https://github.com/untrustedmodders/dynhook/commit/601dd7ab5ae3dd9f4fc7548c8c778cd519277c3f))
+* version and exports ([19c616e](https://github.com/untrustedmodders/dynhook/commit/19c616e71ba987d7ce8628c80af0eeb015cfe08e))
+
 ## [1.0.2](https://github.com/untrustedmodders/dynhook/compare/v1.0.1...v1.0.2) (2025-02-05)
 
 
