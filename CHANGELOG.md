@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/untrustedmodders/dynhook/compare/v1.0.3...v1.0.4) (2025-03-26)
+
+
+### Bug Fixes
+
+* build when dep ([412f3dd](https://github.com/untrustedmodders/dynhook/commit/412f3dd4114dbf5072886378b34b1eac006fe232))
+* typo ([2325d34](https://github.com/untrustedmodders/dynhook/commit/2325d34fcaa0685488ac17384fb469889bc5648a))
+* update action build ([bc307d2](https://github.com/untrustedmodders/dynhook/commit/bc307d20ab06b036919e69ffbe76afd8b422cda2))
+
 ## [1.0.3](https://github.com/untrustedmodders/dynhook/compare/v1.0.2...v1.0.3) (2025-03-17)
 
 
