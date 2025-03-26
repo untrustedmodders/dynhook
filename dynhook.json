@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/untrustedmodders/plugify/refs/heads/main/schemas/package.schema.json",
   "content": {
-    "dynohook": {
+    "dynhook": {
       "name": "dynhook",
       "type": "plugin",
       "author": "qubka",

@@ -70,7 +70,7 @@ if(NOT COMPILER_SUPPORTS_FORMAT)
     target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt-header-only)
 endif()
 
-file(READ "${CMAKE_SOURCE_DIR}/version.txt" VERSION_FILE_CONTENTS)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/version.txt" VERSION_FILE_CONTENTS)
 string(STRIP "${VERSION_FILE_CONTENTS}" VERSION_FILE_CONTENTS)
 set(DYNHOOK_VERSION "${VERSION_FILE_CONTENTS}" CACHE STRING "Set version name")
 set(DYNHOOK_PACKAGE "dynhook" CACHE STRING "Set package name")
@@ -78,6 +78,6 @@ string(REPLACE "v" "" DYNHOOK_VERSION "${DYNHOOK_VERSION}")
 
 
 configure_file(
-    ${CMAKE_SOURCE_DIR}/dynhook.pplugin.in
-    ${CMAKE_BINARY_DIR}/dynhook.pplugin
+    ${CMAKE_CURRENT_SOURCE_DIR}/dynhook.pplugin.in
+    ${CMAKE_CURRENT_BINARY_DIR}/dynhook.pplugin
 )
