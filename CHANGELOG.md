@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.5](https://github.com/untrustedmodders/dynhook/compare/v1.0.4...v1.0.5) (2025-06-16)
+
+
+### Bug Fixes
+
+* add cmake versioning ([9199a37](https://github.com/untrustedmodders/dynhook/commit/9199a3740555f3669dff2ef05da9bb489cf6f176))
+* add macos export symbols ([8e7421b](https://github.com/untrustedmodders/dynhook/commit/8e7421b23131089dddd2f0386f47e19dc62a3dba))
+* update plugify ([f2619b3](https://github.com/untrustedmodders/dynhook/commit/f2619b3b5975d150349b25d65a1d0e59ff667d42))
+* update plugify ([2225e9a](https://github.com/untrustedmodders/dynhook/commit/2225e9a2f8ad8f5734b59c7b58e4376e0040803f))
+* update version naming ([f8800b0](https://github.com/untrustedmodders/dynhook/commit/f8800b0548d8bcd31e78feb6081b8e5a97f9111d))
+
 ## [1.0.4](https://github.com/untrustedmodders/dynhook/compare/v1.0.3...v1.0.4) (2025-03-26)
 
 
