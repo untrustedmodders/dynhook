@@ -64,7 +64,7 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNHOOK_VERSION="${{ needs.setup.outputs.tag_name }}" -DDYNHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.tag_name }}-windows-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNHOOK_VERSION="${{ needs.setup.outputs.tag_name }}" -DDYNHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.tag_name }}-windows_x64-${{ env.GITHUB_SHA_SHORT }}" ..
           cmake --build . --target dynh --config ${{ env.BUILD_TYPE }} -- /m
 
       - name: Clean build directory
@@ -76,7 +76,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: dynhook-build-windows-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-windows_x64-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
 
   build_linux:
@@ -103,7 +103,7 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNHOOK_VERSION="${{ needs.setup.outputs.tag_name }}" -DDYNHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.tag_name }}-linux-${{ env.GITHUB_SHA_SHORT }}" ..
+          cmake -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DDYNHOOK_VERSION="${{ needs.setup.outputs.tag_name }}" -DDYNHOOK_PACKAGE="dynhook-build-${{ needs.setup.outputs.tag_name }}-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}" ..
           cmake --build . --target dynh --config ${{ env.BUILD_TYPE }} -- -j
 
       - name: Clean build directory
@@ -114,7 +114,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: dynhook-build-linux-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
 
   publish:
@@ -134,23 +134,23 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: dynhook-build-windows-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-windows_x64-${{ env.GITHUB_SHA_SHORT }}
           path: build/windows
 
       - uses: actions/download-artifact@v4
         with:
-          name: dynhook-build-linux-${{ env.GITHUB_SHA_SHORT }}
+          name: dynhook-build-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}
           path: build/linux
 
       - name: Zip Builds
         run: |
-          (cd build/linux && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.tag_name }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip *)
-          (cd build/windows && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.tag_name }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/linux && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.tag_name }}-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}.zip *)
+          (cd build/windows && zip -qq -r ../../dynhook-build-${{ needs.setup.outputs.tag_name }}-windows_x64-${{ env.GITHUB_SHA_SHORT }}.zip *)
 
       - id: linux
-        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.tag_name }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.tag_name }}-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
       - id: windows
-        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.tag_name }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+        run: echo "checksum=$(sha256sum dynhook-build-${{ needs.setup.outputs.tag_name }}-windows_x64-${{ env.GITHUB_SHA_SHORT }}.zip | cut -d' ' -f1)" >> $GITHUB_OUTPUT
 
       - name: Release
         id: release
@@ -158,8 +158,8 @@ jobs:
         with:
           tag_name: ${{ needs.setup.outputs.tag_name }}
           files: |
-            dynhook-build-${{ needs.setup.outputs.tag_name }}-windows-${{ env.GITHUB_SHA_SHORT }}.zip
-            dynhook-build-${{ needs.setup.outputs.tag_name }}-linux-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynhook-build-${{ needs.setup.outputs.tag_name }}-windows_x64-${{ env.GITHUB_SHA_SHORT }}.zip
+            dynhook-build-${{ needs.setup.outputs.tag_name }}-steamrt_x64-${{ env.GITHUB_SHA_SHORT }}.zip
 
   repository:
     permissions:
@@ -245,8 +245,8 @@ jobs:
                 return data
             
             data = load_json_from_url(json_url)
-            data = append_new_version(data, version_tag, checksum_windows, package_name, "windows-x64")
-            data = append_new_version(data, version_tag, checksum_linux, package_name, "steamrt-x64")
+            data = append_new_version(data, version_tag, checksum_windows, package_name, "windows_x64")
+            data = append_new_version(data, version_tag, checksum_linux, package_name, "steamrt_x64")
             save_json('build/repo/dynhook.json', data)
 
       - name: Upload artifact
