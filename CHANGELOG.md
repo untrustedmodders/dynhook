@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.6](https://github.com/untrustedmodders/dynhook/compare/v1.0.5...v1.0.6) (2025-08-01)
+
+
+### Bug Fixes
+
+* bump C++ to 23 ([b202e88](https://github.com/untrustedmodders/dynhook/commit/b202e88e3d1c877c226891a560cd4db455c53f79))
+* update readme and add missing permission ([6e56116](https://github.com/untrustedmodders/dynhook/commit/6e561163a3dea8a58bffba66eef43f7b016f6691))
+
 ## [1.0.5](https://github.com/untrustedmodders/dynhook/compare/v1.0.4...v1.0.5) (2025-06-26)
 
 
